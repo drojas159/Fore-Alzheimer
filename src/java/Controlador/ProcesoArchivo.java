@@ -10,6 +10,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -22,7 +24,6 @@ import javax.servlet.http.Part;
  *
  * @author Daniela
  */
-@WebServlet("/ProcesoArchivo")
 @MultipartConfig
 public class ProcesoArchivo extends HttpServlet {
 
@@ -40,30 +41,22 @@ public class ProcesoArchivo extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet ProcesoArchivo</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet ProcesoArchivo at " + request.getContextPath() + "</h1>");
-            out.println("Dan");
-            out.println("</body>");
-            out.println("</html>");
+            
             String nombre = request.getParameter("nombre");
+            out.println(nombre);
             Part archivo = request.getPart("csv1");
+            out.println(archivo);
             InputStream is = archivo.getInputStream();
-            File f= new File("C:/csvs/"+nombre);
+            File f= new File("C:/csvs/EEG/"+nombre);
             FileOutputStream ous = new FileOutputStream(f);
             int dato = is.read();
             while(dato!= -1){
                 ous.write(dato);
                 dato=is.read();
+                out.println(dato);
             }
-            
             ous.close();
             is.close();
-            
         }
     }
 

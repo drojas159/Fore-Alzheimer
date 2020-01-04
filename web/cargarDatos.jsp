@@ -125,7 +125,8 @@ and open the template in the editor.
                     <!-- carga de archivo -->
                     <h3>Cargar archivos CSV correspondientes a EEG</h3>
 
-                    <form  name="formulario" methos="post">
+                    <form   name="formulario" method="post" enctype="multipart/form-data" onsubmit="cargarArchivo()">
+                        <!--action="archivoController?action=subir"--> 
                         <!-- ------------------ -->  
 
                         <table class="table table-bordered text-center" id="dataTable" width="100%" cellspacing="0" >
@@ -140,40 +141,40 @@ and open the template in the editor.
                                 <tr>
                                     <th scope ="col" rowspan="3"> Ejercicio 01 </th>
                                     <td scope ="col" > 1 </td>
-                                    <td scope ="col"> <div class="custom-file">
-                                            <input type="file" onchange="cargarArchivo(this)" name="csv1" >
-
-                                        </div></td>
+                                    <td scope ="col">
+                                        <input class="custom-file" type="file"  name="csv1" >
+                                    </td>
                                 </tr>
-                                <!--<tr>
+                                <tr>
                                     <td scope ="col" > 2 </td>
-                                    <th scope ="col"> <div class="custom-file">
-                                            <input type="file" class="custom-file-input" id="inputGroupFile01"
-                                                   aria-describedby="inputGroupFileAddon01" lang="es">
-                                            <label class="custom-file-label" for="inputGroupFile01">Elegir archivo</label>
-                                        </div></th>
+                                    <td scope ="col"> 
+                                        <input class="custom-file" type="file"  name="csv2" >
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td scope ="col" > 3 </td>
-                                    <th scope ="col"> <div class="custom-file">
-                                            <input type="file" class="custom-file-input" id="inputGroupFile01"
-                                                   aria-describedby="inputGroupFileAddon01" lang="es">
-                                            <label class="custom-file-label" for="inputGroupFile01">Elegir archivo</label>
-                                        </div></th>
-                                </tr>-->
+                                    <td scope ="col"> 
+                                        <input class="custom-file" type="file"  name="csv3" >
+
+                                    </td>
+                                </tr>
 
                             </tbody>
                         </table>
 
                         <input type="hidden" name="nombre" value="" />
 
+
+
+
                         <!-- ------------------ -->  
                         <div class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0"     >
-                            <button type="submit" class="btn btn-primary btn-block">Cargar</button>
+                            <button type="submit" class="btn btn-primary btn-block" >Cargar</button>
                         </div>
                     </form>
 
-                    <iframe name="null" style="display:none;" ></iframe>
+                    <iframe name="null" <!--style="display:none;"--> ></iframe>
+
                     <p>
 
                         <a href="#" class="btn btn-primary btn-lg active" role="button">Cargar</a>
