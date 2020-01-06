@@ -25,7 +25,7 @@ import javax.servlet.http.Part;
  * @author Daniela
  */
 @MultipartConfig
-public class ProcesoArchivo extends HttpServlet {
+public class ProcesoArchivoETAVI extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -43,17 +43,17 @@ public class ProcesoArchivo extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
             int i;
             List<String> nombre = new ArrayList<>();
-            for (i = 1; i <= 3; i++) {
+            for (i = 1; i <= 45; i++) {
                 nombre.add(request.getParameter("nombre" + i));
                 out.println(nombre);
             }
 
             List<Part> archivo = new ArrayList<>();
-            for (i = 1; i <= 3; i++) {
+            for (i = 1; i <= 45; i++) {
                 archivo.add(request.getPart("csv" + i));
                 out.println(archivo);
                 InputStream is = archivo.get(i-1).getInputStream();
-                File f = new File("C:/csvs/EEG/" + nombre.get(i-1));
+                File f = new File("C:/csvs/ETAVI/" + nombre.get(i-1));
                 FileOutputStream ous = new FileOutputStream(f);
                 int dato = is.read();
                 while (dato != -1) {

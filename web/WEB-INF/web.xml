@@ -4,9 +4,33 @@
         <servlet-name>ProcesoArchivo</servlet-name>
         <servlet-class>Controlador.ProcesoArchivo</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ProcesoArchivoETAVI</servlet-name>
+        <servlet-class>Controlador.ProcesoArchivoETAVI</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ProcesoArchivoEEG</servlet-name>
+        <servlet-class>Controlador.ProcesoArchivoEEG</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ProcesoArchivoETCSV</servlet-name>
+        <servlet-class>Controlador.ProcesoArchivoETCSV</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ProcesoArchivo</servlet-name>
         <url-pattern>/ProcesoArchivo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProcesoArchivoETAVI</servlet-name>
+        <url-pattern>/ProcesoArchivoETAVI</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProcesoArchivoEEG</servlet-name>
+        <url-pattern>/ProcesoArchivoEEG</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProcesoArchivoETCSV</servlet-name>
+        <url-pattern>/ProcesoArchivoETCSV</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
