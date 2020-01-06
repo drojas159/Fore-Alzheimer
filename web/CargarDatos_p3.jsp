@@ -123,7 +123,7 @@ and open the template in the editor.
                             Cargar Datos</li>
                     </ol>
                     <!-- carga de archivo -->
-                    <h3>Cargar archivos CSV correspondientes a EEG</h3>
+                    <h3>Cargar archivos AVI correspondientes a ET</h3>
 
                     <form   name="formulario" method="post" enctype="multipart/form-data" >
                         <!--action="archivoController?action=subir"--> 
@@ -142,23 +142,23 @@ and open the template in the editor.
                                     <th scope ="col" rowspan="3"> Ejercicio 01 </th>
                                     <td scope ="col" > 1 </td>
                                     <td scope ="col">
-                                        <input class="custom-file" type="file"  name="csv1" >
+                                        <input class="custom-file" type="file"  name="csv1" required >
                                     </td>
                                 </tr>
                                 <tr>
                                     <td scope ="col" > 2 </td>
                                     <td scope ="col"> 
-                                        <input class="custom-file" type="file"  name="csv2" >
+                                        <input class="custom-file" type="file"  name="csv2" required >
                                     </td>
                                 </tr>
                                 <tr>
                                     <td scope ="col" > 3 </td>
                                     <td scope ="col"> 
-                                        <input class="custom-file" type="file"  name="csv3" >
+                                        <input class="custom-file" type="file"  name="csv3" required>
 
                                     </td>
                                 </tr>
-                                
+                                <!--
                                 <tr>
                                     <th scope ="col" rowspan="3"> Ejercicio 02 </th>
                                     <td scope ="col" > 1 </td>
@@ -401,7 +401,7 @@ and open the template in the editor.
                                     <td scope ="col"> 
                                         <input class="custom-file" type="file"  name="csv38" >
                                     </td>
-                                </tr>
+                                </tr>8
                                 <tr>
                                     <td scope ="col" > 3 </td>
                                     <td scope ="col"> 
@@ -451,7 +451,7 @@ and open the template in the editor.
 
                                     </td>
                                 </tr>
-                                
+                                -->
 
                             </tbody>
                         </table>
@@ -459,7 +459,7 @@ and open the template in the editor.
                         <input type="hidden" name="nombre1" value="" />
                         <input type="hidden" name="nombre2" value="" />
                         <input type="hidden" name="nombre3" value="" />
-                        
+                        <!--
                         <input type="hidden" name="nombre4" value="" />
                         <input type="hidden" name="nombre5" value="" />
                         <input type="hidden" name="nombre6" value="" />
@@ -509,17 +509,25 @@ and open the template in the editor.
 
                         <!-- ------------------ -->  
                         <div class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0"     >
-                            <button type="submit" class="btn btn-primary btn-block" onclick="cargarArchivo()">Cargar</button>
+                            <button type="submit" class="btn btn-primary btn-block" onclick="cargarArchivo('EEG')">Cargar</button>
                         </div>
                     </form>
 
-                    <iframe name="null" <!--style="display:none;"--> ></iframe>
-
-                    <p>
-
-                        <a href="CargarDatos02.jsp" class="btn btn-primary btn-lg active" role="button">Cargar</a>
-                    </p>
-
+                    <iframe name="null" style="display:none;" ></iframe>
+                    
+                    <form   name="formulario2" method="post" style="display:none;" >
+                        <center>
+                            <br><br>
+                            <h5> Datos cargados correctamente.</h5>
+                            <br><br>
+                         <!--<input type="submit" lass="btn btn-primary btn-lg active" value="Siguiente">-->
+                         <a href="#" class="btn btn-primary btn-lg active" role="button">Ejecutar Modelo Predictivo</a>
+                         <!--<button type="submit" class="btn btn-primary btn-lg active" <!--onclick="cargarArchivo('EEG')
+                         ">Ejecutar Modelo Predictivo</button>-->
+                        </center>
+                        
+                    </form>
+                    
                 </div>
 
 

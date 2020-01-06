@@ -78,7 +78,7 @@ and open the template in the editor.
 
                 <!-- 2. Cargar datos -->
                 <li class="nav-item">
-                    <a class="nav-link" href="CargarDatos.jsp" >
+                    <a class="nav-link" href="CargarDatos_p1.jsp" >
                         <i class="fas fa-fw fa-cloud-upload-alt"></i>
                         <span>Cargar Datos</span>
                     </a>

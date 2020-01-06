@@ -142,19 +142,19 @@ and open the template in the editor.
                                     <th scope ="col" rowspan="3"> Ejercicio 01 </th>
                                     <td scope ="col" > 1 </td>
                                     <td scope ="col">
-                                        <input class="custom-file" type="file"  name="csv1" >
+                                        <input class="custom-file" type="file"  name="csv1" required >
                                     </td>
                                 </tr>
                                 <tr>
                                     <td scope ="col" > 2 </td>
                                     <td scope ="col"> 
-                                        <input class="custom-file" type="file"  name="csv2" >
+                                        <input class="custom-file" type="file"  name="csv2" required >
                                     </td>
                                 </tr>
                                 <tr>
                                     <td scope ="col" > 3 </td>
                                     <td scope ="col"> 
-                                        <input class="custom-file" type="file"  name="csv3" >
+                                        <input class="custom-file" type="file"  name="csv3" required>
 
                                     </td>
                                 </tr>
@@ -509,17 +509,23 @@ and open the template in the editor.
 
                         <!-- ------------------ -->  
                         <div class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0"     >
-                            <button type="submit" class="btn btn-primary btn-block" onclick="cargarArchivo()">Cargar</button>
+                            <button type="submit" class="btn btn-primary btn-block" onclick="cargarArchivo('EEG')">Cargar</button>
                         </div>
                     </form>
 
-                    <iframe name="null" <!--style="display:none;"--> ></iframe>
-
-                    <p>
-
-                        <a href="#" class="btn btn-primary btn-lg active" role="button">Cargar</a>
-                    </p>
-
+                    <iframe name="null" style="display:none;" ></iframe>
+                    
+                    <form   name="formulario2" method="post" enctype="multipart/form-data" style="display:none;" >
+                        <center>
+                            <br><br>
+                            <h5> Datos cargados correctamente.</h5>
+                            <br><br>
+                         <!--<input type="submit" lass="btn btn-primary btn-lg active" value="Siguiente">-->
+                         <a href="CargarDatos_p2.jsp" class="btn btn-primary btn-lg active" role="button">Siguiente</a>
+                        </center>
+                        
+                    </form>
+                    
                 </div>
 
 

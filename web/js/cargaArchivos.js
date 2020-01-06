@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-function cargarArchivo() {
+function cargarArchivo(origen) {
     var file1 = document.formulario.csv1.files[0];
     var file2 = document.formulario.csv2.files[0];
     var file3 = document.formulario.csv3.files[0];
@@ -201,15 +201,26 @@ function cargarArchivo() {
     
     alert(document);
     document.formulario.target = "null";
-    document.formulario.action = "ProcesoArchivo";
-    /*switch(origen){
-        case 'EEG': 
-            document.formulario.action = "ProcesoArchivoEEG";
-        case 'ETAVI':
+    //document.formulario.action = "ProcesoArchivo";
+    switch(origen){
+        case 'EEG':{
+            alert(origen+'EEG')
+            document.formulario.action = "ProcesoArchivo";
+            document.formulario.style="display:none;";
+            document.formulario2.style="";
+            break;
+        }   
+        case 'ETAVI':{
+            alert(origen+'ETAVI')
             document.formulario.action = "ProcesoArchivoETAVI";
-        case 'ETCSV':
+            break;
+        }
+        case 'ETCSV':{
+            alert(origen+'ETCSV')
             document.formulario.action = "ProcesoArchivoETCSV";
-    }*/
+            break;
+        }
+    }
     
 
 }
