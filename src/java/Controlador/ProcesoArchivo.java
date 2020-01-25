@@ -14,7 +14,6 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -24,23 +23,43 @@ import javax.servlet.http.Part;
  *
  * @author Daniela
  */
+
 @MultipartConfig
 public class ProcesoArchivo extends HttpServlet {
-
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+    
+    public ProcesoArchivo() {
+        super();
+    }
+    
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
+
+        System.out.println("Hola Servlet..");
+        String action = request.getParameter("action");
+        System.out.println(action);
+        String ruta;
+        switch (action) {
+            case "EEG":
+                ruta="/home/ubuntu/csvs/"+action+ "/";
+                ProcesoArchivo(request, response,ruta);
+                break;
+            case "ETCSV":
+                ruta="/home/ubuntu/csvs/"+action+ "/";
+                ProcesoArchivo(request, response,ruta);
+                break;
+            case "ETAVI":
+                ruta="/home/ubuntu /csvs/"+action+ "/";
+                ProcesoArchivo(request, response,ruta);
+                break;
+        }
+
+    }
+    
+    private void ProcesoArchivo(HttpServletRequest request, HttpServletResponse response, String ruta) 
+            throws ServletException, IOException  {
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
+            
             int i;
             List<String> nombre = new ArrayList<>();
             for (i = 1; i <= 3; i++) {
@@ -52,8 +71,8 @@ public class ProcesoArchivo extends HttpServlet {
             for (i = 1; i <= 3; i++) {
                 archivo.add(request.getPart("csv" + i));
                 out.println(archivo);
-                InputStream is = archivo.get(i-1).getInputStream();
-                File f = new File("C:/csvs/EEG/" + nombre.get(i-1));
+                InputStream is = archivo.get(i - 1).getInputStream();
+                File f = new File(ruta + nombre.get(i - 1));
                 FileOutputStream ous = new FileOutputStream(f);
                 int dato = is.read();
                 while (dato != -1) {
@@ -65,24 +84,11 @@ public class ProcesoArchivo extends HttpServlet {
                 is.close();
             }
 
-            
         }
     }
+    
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-    }
+   
 
     /**
      * Handles the HTTP <code>POST</code> method.
@@ -95,7 +101,7 @@ public class ProcesoArchivo extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        doGet(request, response);
     }
 
     /**

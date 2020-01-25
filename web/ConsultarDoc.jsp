@@ -1,10 +1,8 @@
 <%-- 
-    Document   : cargarDatos.jsp
-    Created on : 3/01/2020, 01:29:39 PM
+    Document   : consultar_doc
+    Created on : 6/01/2020, 12:19:47 PM
     Author     : Daniela
 --%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -28,12 +26,11 @@ and open the template in the editor.
         <!-- Custom styles for this template-->
         <link href="css/sb-admin.css" rel="stylesheet">
         <script type="text/javascript" src="./js/cargaArchivos.js" ></script>
-
     </head>
     <body>
         <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-            <a class="navbar-brand mr-1" href="index.jsp">Fore-Alzheimer</a>
+            <a class="navbar-brand mr-1" href="index.html">Fore-Alzheimer</a>
             <!-- Navbar Search -->
             <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
                 <div class="input-group">
@@ -70,7 +67,7 @@ and open the template in the editor.
             <ul class="sidebar navbar-nav">
 
                 <!-- 1. Panel de Conrtrol -->
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a class="nav-link" href="index.jsp">
                         <i class="fas fa-fw fa-tachometer-alt"></i>
                         <span>Panel de Control</span>
@@ -78,7 +75,7 @@ and open the template in the editor.
                 </li>
 
                 <!-- 2. Cargar datos -->
-                <li class="nav-item active">
+                <li class="nav-item dropdown">
                     <a class="nav-link" href="#" >
                         <i class="fas fa-fw fa-cloud-upload-alt"></i>
                         <span>Cargar Datos</span>
@@ -104,14 +101,14 @@ and open the template in the editor.
 
                 <!-- 4. Reportes -->
                 <li class="nav-item">
-                    <a class="nav-link" href="reportes.jsp">
+                    <a class="nav-link" href="reportes.jsp"> <!-- cambiar a charts.html-->
                         <i class="far fa-fw fa-file-alt"></i>
                         <span>Reportes</span></a>
                 </li>
             </ul>
             <!-- Fin sidebar -->
             <!--Inicio contenido -->
-            <div id="content-wrapper" >
+            <div id="content-wrapper">
                 <div class="container-fluid">
                     <!-- Nota-->
                     <ol class="breadcrumb">
@@ -122,72 +119,29 @@ and open the template in the editor.
                             <i class="fas fa-fw fa-cloud-upload-alt"></i>
                             Cargar Datos</li>
                     </ol>
-                    <!-- carga de archivo -->
-                    <h3>Cargar archivos CSV correspondientes a EEG</h3>
+                    <h3>Cargar Archivos</h3>
+                    <br><br>
+                    
 
-                    <form   name="formulario" method="post" enctype="multipart/form-data" onsubmit="cargarArchivo()">
-                        <!--action="archivoController?action=subir"--> 
-                        <!-- ------------------ -->  
-
-                        <table class="table table-bordered text-center" id="dataTable" width="100%" cellspacing="0" >
-                            <thead>
-                                <tr>
-                                    <th scope ="col"> # Ejercicio de Entrenamiento Cognitivo </th>
-                                    <th scope ="col"> # Sesión </th>
-                                    <th scope ="col"> Archivo </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope ="col" rowspan="3"> Ejercicio 01 </th>
-                                    <td scope ="col" > 1 </td>
-                                    <td scope ="col">
-                                        <input class="custom-file" type="file"  name="csv1" >
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td scope ="col" > 2 </td>
-                                    <td scope ="col"> 
-                                        <input class="custom-file" type="file"  name="csv2" >
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td scope ="col" > 3 </td>
-                                    <td scope ="col"> 
-                                        <input class="custom-file" type="file"  name="csv3" >
-
-                                    </td>
-                                </tr>
-
-                            </tbody>
-                        </table>
-
-                        <input type="hidden" name="nombre" value="" />
-
-
-
-
-                        <!-- ------------------ -->  
+                    <form   name="formulario" method="post" enctype="multipart/form-data"> <!--style="display:none;"--> 
+                        
+                        <label>Inserte el documento del paciente:</label>
+                        <input type="text" class="form-control" name="doc" placeholder="Documento del paciente">
+                        <br><br><!--<input type="submit" lass="btn btn-primary btn-lg active" value="Siguiente">-->
                         <div class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0"     >
-                            <button type="submit" class="btn btn-primary btn-block" >Cargar</button>
+                            <button type="submit" class="btn btn-primary btn-block" onclick="consultarDoc()">Cargar</button>
                         </div>
+
                     </form>
-
-                    <iframe name="null" <!--style="display:none;"--> ></iframe>
-
-                    <p>
-
-                        <a href="#" class="btn btn-primary btn-lg active" role="button">Cargar</a>
-                    </p>
-
                 </div>
+
 
 
                 <!-- Footer -->
                 <footer class="sticky-footer">
                     <div class="container my-auto">
                         <div class="copyright text-center my-auto">
-                            <span>Universidad Católica de Colombia</span>
+                            <span>Universidad Cat�lica de Colombia</span>
                         </div>
                     </div>
                 </footer>

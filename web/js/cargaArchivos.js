@@ -198,30 +198,36 @@ function cargarArchivo(origen) {
     objHidden45 = document.formulario.nombre45;
     objHidden45.value = file45.name;
     */
-    
-    alert(document);
     document.formulario.target = "null";
     //document.formulario.action = "ProcesoArchivo";
     switch(origen){
         case 'EEG':{
-            alert(origen+'EEG')
-            document.formulario.action = "ProcesoArchivo";
+            
+            document.formulario.action = "ProcesoArchivo?action=EEG";
             document.formulario.style="display:none;";
             document.formulario2.style="";
             break;
         }   
         case 'ETAVI':{
-            alert(origen+'ETAVI')
-            document.formulario.action = "ProcesoArchivoETAVI";
+            document.formulario.action = "ProcesoArchivo?action=ETAVI";
+            document.formulario.style="display:none;";
+            document.formulario2.style="";
             break;
         }
         case 'ETCSV':{
-            alert(origen+'ETCSV')
-            document.formulario.action = "ProcesoArchivoETCSV";
+            document.formulario.action = "ProcesoArchivo?action=ETCSV";
+            document.formulario.style="display:none;";
+            document.formulario2.style="";
             break;
         }
     }
     
 
+}
+
+function consultarDoc(){
+    var documento=document.formulario.doc.value;
+    alert(documento);
+    document.formulario.action = "CargarDatos_p1.jsp";
 }
 

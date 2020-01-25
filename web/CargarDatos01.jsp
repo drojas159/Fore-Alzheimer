@@ -1,9 +1,8 @@
 <%-- 
-    Document   : cargarDatos.jsp
-    Created on : 3/01/2020, 01:29:39 PM
+    Document   : cargarDatos01
+    Created on : 4/01/2020, 12:02:35 AM
     Author     : Daniela
 --%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <!--
@@ -125,10 +124,7 @@ and open the template in the editor.
                     <!-- carga de archivo -->
                     <h3>Cargar archivos CSV correspondientes a EEG</h3>
 
-                    <form   name="formulario" method="post" enctype="multipart/form-data" >
-                        <!--action="archivoController?action=subir"--> 
-                        <!-- ------------------ -->  
-
+                    <form   name="formulario" method="post" enctype="multipart/form-data">
                         <table class="table table-bordered text-center" id="dataTable" width="100%" cellspacing="0" >
                             <thead>
                                 <tr>
@@ -401,7 +397,7 @@ and open the template in the editor.
                                     <td scope ="col"> 
                                         <input class="custom-file" type="file"  name="csv38" >
                                     </td>
-                                </tr>
+                                </tr>8
                                 <tr>
                                     <td scope ="col" > 3 </td>
                                     <td scope ="col"> 
@@ -508,16 +504,16 @@ and open the template in the editor.
                         
 
                         <!-- ------------------ -->  
-                        <div class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0"     >
+                        <div class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
                             <button type="submit" class="btn btn-primary btn-block" onclick="cargarArchivo()">Cargar</button>
                         </div>
                     </form>
 
-                    <iframe name="null" <!--style="display:none;"--> ></iframe>
+                    <iframe name="null" style="display:none;" ></iframe>
 
                     <p>
 
-                        <a href="CargarDatos02.jsp" class="btn btn-primary btn-lg active" role="button">Cargar</a>
+                        <a href="CargarDatos02.jsp" class="btn btn-primary btn-lg active" role="button">Siguiente</a>
                     </p>
 
                 </div>
@@ -543,3 +539,4 @@ and open the template in the editor.
 
     </body>
 </html>
+

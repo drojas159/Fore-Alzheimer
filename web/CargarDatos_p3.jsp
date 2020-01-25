@@ -509,7 +509,7 @@ and open the template in the editor.
 
                         <!-- ------------------ -->  
                         <div class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0"     >
-                            <button type="submit" class="btn btn-primary btn-block" onclick="cargarArchivo('EEG')">Cargar</button>
+                            <button type="submit" class="btn btn-primary btn-block" onclick="cargarArchivo('ETAVI')">Cargar</button>
                         </div>
                     </form>
 
