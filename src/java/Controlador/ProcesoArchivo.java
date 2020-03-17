@@ -41,15 +41,15 @@ public class ProcesoArchivo extends HttpServlet {
         String ruta;
         switch (action) {
             case "EEG":
-                ruta="/home/ubuntu/csvs/"+action+ "/";
+                ruta="C:/csvs/"+action+ "/";
                 ProcesoArchivo(request, response,ruta);
                 break;
             case "ETCSV":
-                ruta="/home/ubuntu/csvs/"+action+ "/";
+                ruta="C:/csvs/"+action+ "/";
                 ProcesoArchivo(request, response,ruta);
                 break;
             case "ETAVI":
-                ruta="/home/ubuntu /csvs/"+action+ "/";
+                ruta="C:/csvs/"+action+ "/";
                 ProcesoArchivo(request, response,ruta);
                 break;
         }
